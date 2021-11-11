@@ -16,31 +16,43 @@ public class MainDrive {
 //			써도 되는 숫자가 나올때까지 무한 반복.
 
 			while (true) {
-				
+
 //				1~9 중 하나를 랜덤으로 추출.
 				int randomNum = (int) (Math.random() * 9 + 1);
-				
+
 //				중복 검사. cpuNumbers에 같은 값이 있나? 확인.
-				
+
 				boolean isDuplOk = true;
-				
-				
+
 				for (int cpuNum : cpuNunbers) {
-					
-					if ( randomNum == cpuNum) {
-						
+
+					if (randomNum == cpuNum) {
+
 //						중복 숫자 발견! => 사용하면 안됨!
 						isDuplOk = false;
-						
+
 					}
-					
+
 				}
-				
-				
+
 //				써도 되는 숫자면, cpuNumber의 위치에 맞게 집어넣고, 다음숫자로 넘어가자.
+
+				if (isDuplOk) {
+
+					cpuNunbers[i] = randomNum;
+
+//					무한 반복 탈출
+					break;
+
+				}
 
 			}
 
+		}
+
+//		나온 문제가 어떤 값인지 출력
+		for (int cpuNum : cpuNunbers) {
+			System.out.println("문제 숫자 : " + cpuNum);
 		}
 
 	}
