@@ -1,5 +1,9 @@
 package codes;
 
+import java.util.Scanner;
+
+import javax.print.DocFlavor.INPUT_STREAM;
+
 public class MainDrive {
 
 	public static void main(String[] args) {
@@ -53,6 +57,29 @@ public class MainDrive {
 //		나온 문제가 어떤 값인지 출력
 		for (int cpuNum : cpuNunbers) {
 			System.out.println("문제 숫자 : " + cpuNum);
+		}
+
+//		사용자에게 3자리 숫자 입력 -> 3S 맞출때까지.
+
+		Scanner myScanner = new Scanner(System.in);
+
+		while (true) {
+			System.out.print("정답 입력 (3자리 정수) : ");
+			int intputNum = myScanner.nextInt();
+
+//			123 => [1,2,3] 배열형태로 분리하자. => 문제 배열과 비교하기 편해짐.
+
+			int[] userNumbers = new int[3];
+
+//			userNumbers[0] = 입력 숫자의 100의 자리?
+			userNumbers[0] = intputNum / 100;
+
+//			userNumbers[1] = 입력 숫자의 10의 자리? => 723 => 72의 1의자리?
+			userNumbers[1] = intputNum / 10 % 10;
+
+//			userNumbers[2] = 입력 숫자의 1의 자리?
+			userNumbers[2] = intputNum % 10;
+
 		}
 
 	}
